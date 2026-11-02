@@ -55,7 +55,7 @@ jobs:
           New-Item -ItemType Directory -Force "$srv\libraries\net\neoforged\neoforge\21.1.265" | Out-Null
           '-version' | Set-Content -Encoding ASCII "$srv\libraries\net\neoforged\neoforge\21.1.265\win_args.txt"
           '-Xmx64M'  | Set-Content -Encoding ASCII "$srv\user_jvm_args.txt"
-          Copy-Item "server-tools\서버시작.bat" $srv
+          Copy-Item "server-tools\*.bat" $srv
           Push-Location $srv
           $bat = Get-ChildItem *.bat | Select-Object -First 1
           $out = cmd /c "`"$($bat.FullName)`" < NUL 2>&1" | Out-String
@@ -74,7 +74,7 @@ jobs:
         run: |
           $dir = Join-Path $env:RUNNER_TEMP 'wrong'
           New-Item -ItemType Directory -Force $dir | Out-Null
-          Copy-Item "server-tools\서버시작.bat" $dir
+          Copy-Item "server-tools\*.bat" $dir
           $bat = Get-ChildItem "$dir\*.bat" | Select-Object -First 1
           $out = cmd /c "`"$($bat.FullName)`" < NUL 2>&1" | Out-String
           Write-Host $out
