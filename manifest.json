@@ -1,10 +1,10 @@
 {
-  "version": 2,
-  "updatedAt": "2026-11-02T17:32:21.160Z",
+  "version": 3,
+  "updatedAt": "2026-11-02T17:50:03.212Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
-  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 새 스킬: R 키로 화염 주먹!",
+  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 새 스킬: R 키로 화염 주먹! (조준점 아래에 쿨타임 표시)",
   "managedDirs": [
     "mods"
   ],
@@ -52,10 +52,10 @@
       "size": 176803
     },
     {
-      "path": "mods/blackocean_skills-1.0.0.jar",
-      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.0.0.jar",
-      "sha1": "98428bdcd8d0babd9a92978275a30a5c3bebe3bf",
-      "size": 1720105
+      "path": "mods/blackocean_skills-1.1.0.jar",
+      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.1.0.jar",
+      "sha1": "bf80d231cda845bc69a97d4e347fe5fc00dfb474",
+      "size": 1732438
     },
     {
       "path": "mods/entityculling-neoforge-1.11.3-mc1.21.1.jar",
