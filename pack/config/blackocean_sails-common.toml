@@ -1,0 +1,81 @@
+[cloth]
+	#하나로 이어진 돛(도화지)의 최대 블록 수. 그림판 크기 제한이기도 함 (기본 256 = 16x16)
+	# Default: 256
+	# Range: 1 ~ 1024
+	maxClothBlocks = 256
+	#돛에 그림을 저장할 수 있는 최대 거리(블록)
+	# Default: 48.0
+	# Range: 4.0 ~ 256.0
+	maxPaintDistance = 48.0
+
+[sailing]
+	#돛 한 칸이 받는 바람 힘 계수 (힘 = 계수 x 바람속도^2). 0 = 돛으로 배가 안 움직임. 클수록 빨리 가속 (기본 0.11)
+	# Default: 0.11
+	# Range: 0.0 ~ 10.0
+	sailForce = 0.11
+	#힘 계산에 쓰는 체감 바람의 최대값(초당 블록). 폭풍 때 배가 날아가지 않게 제한 (기본 12)
+	# Default: 12.0
+	# Range: 0.0 ~ 64.0
+	sailMaxWind = 12.0
+	#옆바람에 배가 옆으로 밀려나는 정도. 정면 바람 힘 대비 비율 (0 = 안 밀림, 기본 0.4)
+	# Default: 0.4
+	# Range: 0.0 ~ 2.0
+	sideForce = 0.4
+	#조타륜 W/S 로 돛을 펴고 접는 속도 (초당 비율, 기본 0.25 = 끝까지 4초)
+	# Default: 0.25
+	# Range: 0.02 ~ 5.0
+	furlSpeed = 0.25
+
+[waves]
+	#바람 세기에 따라 Waterworks 바다(파도) 거칠기를 자동 조절. false 면 Waterworks 자체 날씨 사용
+	windDrivenWaves = true
+	#바람에 비해 파도를 얼마나 크게 할지 배율 (기본 1.3, 0.5 = 순한 바다, 2 = 거친 바다)
+	# Default: 1.3
+	# Range: 0.0 ~ 3.0
+	waveScale = 1.3
+	#바람이 약해도 유지할 최소 바다 거칠기 (0 = 완전 잔잔 가능, 기본 0.3 = 항상 너울이 보임)
+	# Default: 0.3
+	# Range: 0.0 ~ 1.0
+	minimumSea = 0.3
+	#폭풍(/wind storm) 때 바다 거칠기 (waveScale 과 무관, 기본 1.0 = 최대)
+	# Default: 1.0
+	# Range: 0.0 ~ 1.0
+	stormSea = 1.0
+	#폭풍 동안 실제 날씨도 천둥번개로 바꿈 (비·물안개·번개 연출)
+	stormWeather = true
+
+[anchor]
+	#닻이 내려가는 깊이(블록, 보이는 사슬 길이). 내리고 올리는 시간도 이 길이에 비례 (기본 10)
+	# Default: 10.0
+	# Range: 2.0 ~ 64.0
+	anchorDepth = 10.0
+	#닻 내리는 속도(초당 블록, 기본 4 → 10블록에 2.5초)
+	# Default: 4.0
+	# Range: 0.2 ~ 64.0
+	lowerSpeed = 4.0
+	#닻 올리는 속도(초당 블록, 기본 2 → 10블록에 5초). 감아올리는 게 더 느림
+	# Default: 2.0
+	# Range: 0.2 ~ 64.0
+	raiseSpeed = 2.0
+	#닻이 배를 붙잡는 세기(초당 감속 비율, 기본 1.5). 클수록 바람/엔진에도 꿈쩍 안 함
+	# Default: 1.5
+	# Range: 0.0 ~ 20.0
+	holdStrength = 1.5
+	#닻줄 여유(블록). 닻을 내린 지점에서 이만큼은 흔들려도 됨 (기본 2.5)
+	# Default: 2.5
+	# Range: 0.0 ~ 32.0
+	slack = 2.5
+
+[oars]
+	#노 하나가 한 번 저을 때 내는 최대 힘 (기본 250)
+	# Default: 250.0
+	# Range: 0.0 ~ 10000.0
+	oarForce = 250.0
+	#노로 낼 수 있는 최고 속도(초당 블록, 기본 4). 이 속도에 가까울수록 노 힘이 줄어듦
+	# Default: 4.0
+	# Range: 0.5 ~ 30.0
+	oarMaxSpeed = 4.0
+	#노 한 번 젓는 데 걸리는 시간(초, 기본 1.4)
+	# Default: 1.4
+	# Range: 0.4 ~ 5.0
+	strokeTime = 1.4

@@ -1,0 +1,23 @@
+[render]
+	#돛 한 칸을 몇 x 몇 조각으로 나눠 휘게 할지. 높을수록 부드럽지만 무거움 (기본 8)
+	# Default: 8
+	# Range: 2 ~ 16
+	meshDetail = 8
+	#펄럭임 세기 배율 (0 = 안 펄럭임, 1 = 기본)
+	# Default: 1.0
+	# Range: 0.0 ~ 3.0
+	animationScale = 1.0
+
+[mist]
+	#바다 위 물안개 (폭풍·비·새벽에 짙어짐)
+	seaMist = true
+	#물안개 진하기 배율 (기본 1.0, 0.5 = 옅게, 1.5 = 짙게)
+	# Default: 1.0
+	# Range: 0.0 ~ 2.0
+	mistStrength = 1.0
+
+[hud]
+	#조타륜을 잡으면 블랙오션 항해 계기판 표시 (바람·돛·방향·속도·닻)
+	helmHud = true
+	#Sable Ships 기본 조타륜 계기판 숨기기 (false 면 둘 다 보임)
+	replaceShipHud = true

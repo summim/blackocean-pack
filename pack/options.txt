@@ -1,0 +1,4 @@
+lang:ko_kr
+renderDistance:10
+guiScale:0
+maxFps:120
