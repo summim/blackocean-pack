@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "updatedAt": "2026-11-02T18:55:52.036Z",
+  "version": 9,
+  "updatedAt": "2026-11-02T19:17:53.617Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
@@ -18,8 +18,8 @@
     {
       "path": "config/blackocean_sails-common.toml",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/config/blackocean_sails-common.toml",
-      "sha1": "053bed3ed0f46bafe5e42a7eac4d2cb3702d2463",
-      "size": 3057
+      "sha1": "eaecd9736f9d41680b14aaf10dcfc8d56c0f5367",
+      "size": 3428
     },
     {
       "path": "config/sable_ships-common.toml",
