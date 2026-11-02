@@ -27,6 +27,15 @@ function Find-NeoArgs {
 }
 
 while ($true) {
+    # 엉뚱한 폴더(다운로드 폴더 등)에서 실행하면 모드를 받기 전에 먼저 멈춘다
+    $neoArgs = Find-NeoArgs
+    if (-not $neoArgs) {
+        Say '[오류] NeoForge 서버 파일을 못 찾았어요.' 'Red'
+        Say '  서버시작.bat 을 서버 폴더 (run.bat, libraries 폴더가 있는 곳) 에 넣었는지 확인해 주세요.' 'Red'
+        Say ('  지금 위치: ' + $Root) 'DarkGray'
+        exit 1
+    }
+
     Say ''
     Say '[1/2] 모드 업데이트 확인 중...' 'Cyan'
     try {
@@ -45,13 +54,6 @@ while ($true) {
 
     Say ''
     Say '[2/2] 서버 시작' 'Cyan'
-    $neoArgs = Find-NeoArgs
-    if (-not $neoArgs) {
-        Say '[오류] NeoForge 서버 파일을 못 찾았어요.' 'Red'
-        Say '  서버시작.bat 을 서버 폴더 (run.bat, libraries 폴더가 있는 곳) 에 넣었는지 확인해 주세요.' 'Red'
-        Say ('  지금 위치: ' + $Root) 'DarkGray'
-        exit 1
-    }
     if (-not (Get-Command java -ErrorAction SilentlyContinue)) {
         Say '[오류] java 를 찾을 수 없어요. 자바 21 을 설치해 주세요 (https://adoptium.net).' 'Red'
         exit 1

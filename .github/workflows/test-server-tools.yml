@@ -80,4 +80,5 @@ jobs:
           Write-Host $out
           if ($out -match 'was unexpected') { throw "FAIL: cmd parse error" }
           if ($out -notmatch 'Press any key|계속하려면') { throw "FAIL: window would close without pause" }
+          if (Test-Path "$dir\mods") { throw "FAIL: downloaded mods into the wrong folder" }
           Write-Host "ok: wrong folder handled"
