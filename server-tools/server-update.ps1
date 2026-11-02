@@ -47,8 +47,12 @@ Say '=== 블랙오션 서버 모드 업데이트 ===' 'Cyan'
 
 # 1. manifest 읽기 (GitHub 캐시를 피하려고 주소 뒤에 시간을 붙임)
 try {
-    $url = $ManifestUrl + '?t=' + [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
-    $manifest = Invoke-RestMethod -UseBasicParsing -Uri $url -Headers @{ 'Cache-Control' = 'no-cache' } -TimeoutSec 30
+    if ($ManifestUrl -like 'http*') {
+        $url = $ManifestUrl + '?t=' + [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+        $manifest = Invoke-RestMethod -UseBasicParsing -Uri $url -Headers @{ 'Cache-Control' = 'no-cache' } -TimeoutSec 30
+    } else {
+        $manifest = Get-Content -LiteralPath ([Uri]$ManifestUrl).LocalPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    }
 } catch {
     Say "모드팩 정보를 못 받았어요 (인터넷 확인). 업데이트 없이 지금 모드 그대로 서버를 켭니다." 'Red'
     Say ("  이유: " + $_.Exception.Message) 'DarkGray'
