@@ -45,3 +45,39 @@ jobs:
           powershell -NoProfile -ExecutionPolicy Bypass -File "$srv\.blackocean-update.ps1" -Root $srv -ManifestUrl $m
           Must ($LASTEXITCODE -eq 0) "second run ok"
           Must ((Get-ChildItem "$srv\mods_old").Count -eq $before) "second run changed nothing"
+
+      - name: Run 서버시작.bat end-to-end (fake server, java -version instead of a real server)
+        shell: powershell
+        env:
+          BLACKOCEAN_NOLOOP: '1'
+        run: |
+          $srv = Join-Path $env:RUNNER_TEMP 'srv2'
+          New-Item -ItemType Directory -Force "$srv\libraries\net\neoforged\neoforge\21.1.265" | Out-Null
+          '-version' | Set-Content -Encoding ASCII "$srv\libraries\net\neoforged\neoforge\21.1.265\win_args.txt"
+          '-Xmx64M'  | Set-Content -Encoding ASCII "$srv\user_jvm_args.txt"
+          Copy-Item "server-tools\서버시작.bat" $srv
+          Push-Location $srv
+          $bat = Get-ChildItem *.bat | Select-Object -First 1
+          $out = cmd /c "`"$($bat.FullName)`" < NUL 2>&1" | Out-String
+          Pop-Location
+          Write-Host $out
+          if ($out -match 'was unexpected|is not recognized as an internal') { throw "FAIL: cmd parse error" }
+          if ($out -notmatch 'java @user_jvm_args.txt @libraries') { throw "FAIL: server start step not reached" }
+          if ($out -notmatch 'openjdk version|java version') { throw "FAIL: java did not run" }
+          if (-not (Test-Path "$srv\mods\blackocean_skills-1.1.1.jar")) { throw "FAIL: mods not installed by bat" }
+          Write-Host "ok: bat ran update + start"
+
+      - name: Run 서버시작.bat in a wrong folder (must show error, not crash)
+        shell: powershell
+        env:
+          BLACKOCEAN_NOLOOP: '1'
+        run: |
+          $dir = Join-Path $env:RUNNER_TEMP 'wrong'
+          New-Item -ItemType Directory -Force $dir | Out-Null
+          Copy-Item "server-tools\서버시작.bat" $dir
+          $bat = Get-ChildItem "$dir\*.bat" | Select-Object -First 1
+          $out = cmd /c "`"$($bat.FullName)`" < NUL 2>&1" | Out-String
+          Write-Host $out
+          if ($out -match 'was unexpected') { throw "FAIL: cmd parse error" }
+          if ($out -notmatch 'Press any key|계속하려면') { throw "FAIL: window would close without pause" }
+          Write-Host "ok: wrong folder handled"
