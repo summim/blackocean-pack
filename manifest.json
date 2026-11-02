@@ -1,10 +1,10 @@
 {
-  "version": 7,
-  "updatedAt": "2026-11-02T18:24:25.120Z",
+  "version": 8,
+  "updatedAt": "2026-11-02T18:55:52.036Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
-  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 새 스킬: R 키로 화염 주먹! (조준점 아래에 쿨타임 표시)\n- 이제 채팅에서 한글이 바로 쳐져요! (한/영 키로 전환)",
+  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 새 스킬: R 키로 화염 주먹! (조준점 아래에 쿨타임 표시)\n- 이제 채팅에서 한글이 바로 쳐져요! (한/영 키로 전환)\n- 큰 돛이 계단처럼 깨져 보이던 문제 수정",
   "managedDirs": [
     "mods"
   ],
@@ -18,8 +18,8 @@
     {
       "path": "config/blackocean_sails-common.toml",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/config/blackocean_sails-common.toml",
-      "sha1": "85251aaf17228ea96593f5f6f24102051bb239c6",
-      "size": 3056
+      "sha1": "053bed3ed0f46bafe5e42a7eac4d2cb3702d2463",
+      "size": 3057
     },
     {
       "path": "config/sable_ships-common.toml",

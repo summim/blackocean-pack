@@ -2,7 +2,7 @@
 	#하나로 이어진 돛(도화지)의 최대 블록 수. 그림판 크기 제한이기도 함 (기본 256 = 16x16)
 	# Default: 256
 	# Range: 1 ~ 1024
-	maxClothBlocks = 256
+	maxClothBlocks = 1024
 	#돛에 그림을 저장할 수 있는 최대 거리(블록)
 	# Default: 48.0
 	# Range: 4.0 ~ 256.0
