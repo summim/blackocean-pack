@@ -22,10 +22,12 @@ const sha1 = (f) => crypto.createHash('sha1').update(fs.readFileSync(f)).digest(
 const files = walk(packDir).map((f) => {
   const rel = path.relative(packDir, f).split(path.sep).join('/');
   const once = (cfg.onceFiles || []).includes(rel);
+  // 시청자 PC 에만 필요한 파일 (서버 업데이트 스크립트가 건너뜀)
+  const clientOnly = (cfg.clientOnly || []).some((p) => rel.toLowerCase().startsWith(p.toLowerCase()));
   return {
     path: rel,
     url: `${cfg.rawBase.replace(/\/$/, '')}/pack/${rel.split('/').map(encodeURIComponent).join('/')}`,
-    sha1: sha1(f), size: fs.statSync(f).size, ...(once ? { once: true } : {}),
+    sha1: sha1(f), size: fs.statSync(f).size, ...(once ? { once: true } : {}), ...(clientOnly ? { side: 'client' } : {}),
   };
 }).sort((a, b) => a.path.localeCompare(b.path));
 
@@ -40,4 +42,4 @@ const manifest = {
 };
 fs.writeFileSync(path.join(root, 'manifest.json'), JSON.stringify(manifest, null, 2));
 console.log(`manifest.json v${manifest.version} — 파일 ${files.length}개`);
-for (const f of files) console.log('  ' + f.path + (f.once ? ' (once)' : ''));
+for (const f of files) console.log('  ' + f.path + (f.once ? ' (once)' : '') + (f.side === 'client' ? ' (client only)' : ''));

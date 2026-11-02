@@ -1,0 +1,47 @@
+name: Test server tools
+
+on:
+  push:
+    paths: [ 'server-tools/**', 'manifest.json', '.github/workflows/test-server-tools.yml' ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run update on a fake server folder (Windows PowerShell 5.1)
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $srv = Join-Path $env:RUNNER_TEMP 'srv'
+          New-Item -ItemType Directory -Force "$srv\mods","$srv\config" | Out-Null
+          'old'  | Set-Content "$srv\mods\blackocean_skills-1.0.0.jar"
+          'kor'  | Set-Content "$srv\mods\koreanpatch-neoforge-1.9.5+mc1.21.jar"
+          'mine' | Set-Content "$srv\mods\myservermod-2.0.jar"
+          'tuned' | Set-Content "$srv\config\blackocean_sails-common.toml"
+          Copy-Item server-tools\server-update.ps1 "$srv\.blackocean-update.ps1"
+          $m = 'file:///' + ((Resolve-Path manifest.json).Path -replace '\\','/')
+
+          powershell -NoProfile -ExecutionPolicy Bypass -File "$srv\.blackocean-update.ps1" -Root $srv -ManifestUrl $m
+          if ($LASTEXITCODE -ne 0) { throw "first run failed" }
+
+          function Must($cond, $msg) { if (-not $cond) { throw "FAIL: $msg" } else { Write-Host "ok: $msg" } }
+          $man = Get-Content manifest.json -Raw | ConvertFrom-Json
+          foreach ($f in $man.files) {
+            if (-not $f.path.StartsWith('mods/')) { continue }
+            $p = Join-Path $srv ($f.path -replace '/','\')
+            if ($f.side -eq 'client') { Must (-not (Test-Path -LiteralPath $p)) "client-only not installed: $($f.path)" }
+            else { Must ((Get-FileHash -Algorithm SHA1 -LiteralPath $p).Hash.ToLower() -eq $f.sha1) "installed: $($f.path)" }
+          }
+          Must (Test-Path "$srv\mods_old\blackocean_skills-1.0.0.jar") "old skills moved"
+          Must (Test-Path "$srv\mods_old\koreanpatch-neoforge-1.9.5+mc1.21.jar") "client mod moved"
+          Must (Test-Path "$srv\mods\myservermod-2.0.jar") "own server mod kept"
+          Must ((Get-Content "$srv\config\blackocean_sails-common.toml") -eq 'tuned') "server config not overwritten"
+          Must (Test-Path "$srv\config\sable_ships-common.toml") "missing config added"
+
+          $before = (Get-ChildItem "$srv\mods_old").Count
+          powershell -NoProfile -ExecutionPolicy Bypass -File "$srv\.blackocean-update.ps1" -Root $srv -ManifestUrl $m
+          Must ($LASTEXITCODE -eq 0) "second run ok"
+          Must ((Get-ChildItem "$srv\mods_old").Count -eq $before) "second run changed nothing"

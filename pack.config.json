@@ -10,5 +10,11 @@
   "onceFiles": [
     "options.txt",
     "servers.dat"
+  ],
+  "clientOnly": [
+    "mods/entityculling-",
+    "mods/ImmediatelyFast-",
+    "mods/koreanpatch-",
+    "mods/sodium-"
   ]
 }

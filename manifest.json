@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "updatedAt": "2026-11-02T18:19:30.363Z",
+  "version": 7,
+  "updatedAt": "2026-11-02T18:24:25.120Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
@@ -61,7 +61,8 @@
       "path": "mods/entityculling-neoforge-1.11.3-mc1.21.1.jar",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/entityculling-neoforge-1.11.3-mc1.21.1.jar",
       "sha1": "f122f84f329793675b2625d51b77f990d7de3579",
-      "size": 1510075
+      "size": 1510075,
+      "side": "client"
     },
     {
       "path": "mods/ferritecore-7.0.3-neoforge.jar",
@@ -73,13 +74,15 @@
       "path": "mods/ImmediatelyFast-NeoForge-1.6.15+1.21.1.jar",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/ImmediatelyFast-NeoForge-1.6.15%2B1.21.1.jar",
       "sha1": "f991166f7c82b493481c876e3c83c9fac4159671",
-      "size": 368896
+      "size": 368896,
+      "side": "client"
     },
     {
       "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.jar",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/koreanpatch-neoforge-1.9.6%2Bmc1.21.jar",
       "sha1": "b8ea18df43478b1432dc184b313d9dc5ead2c19d",
-      "size": 373120
+      "size": 373120,
+      "side": "client"
     },
     {
       "path": "mods/modernfix-neoforge-5.27.27+mc1.21.1.jar",
@@ -109,7 +112,8 @@
       "path": "mods/sodium-neoforge-0.8.13+mc1.21.1.jar",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/sodium-neoforge-0.8.13%2Bmc1.21.1.jar",
       "sha1": "1757289be21ed18db5b0d90703fa3db1b2de5693",
-      "size": 1292934
+      "size": 1292934,
+      "side": "client"
     },
     {
       "path": "mods/wakes-1.21.1-NeoForge-1.4.1.jar",
