@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "updatedAt": "2026-11-02T17:50:03.212Z",
+  "version": 4,
+  "updatedAt": "2026-11-02T17:52:05.552Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
@@ -54,7 +54,7 @@
     {
       "path": "mods/blackocean_skills-1.1.0.jar",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.1.0.jar",
-      "sha1": "bf80d231cda845bc69a97d4e347fe5fc00dfb474",
+      "sha1": "a2a5497548e2d3f5ca60bb551b1e5993d386ef84",
       "size": 1732438
     },
     {
