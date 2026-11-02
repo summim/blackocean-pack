@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "updatedAt": "2026-11-02T18:11:54.706Z",
+  "version": 6,
+  "updatedAt": "2026-11-02T18:19:30.363Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
@@ -52,10 +52,10 @@
       "size": 176803
     },
     {
-      "path": "mods/blackocean_skills-1.1.0.jar",
-      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.1.0.jar",
-      "sha1": "a2a5497548e2d3f5ca60bb551b1e5993d386ef84",
-      "size": 1732438
+      "path": "mods/blackocean_skills-1.1.1.jar",
+      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.1.1.jar",
+      "sha1": "81cc4c81e0515f48d2d13b6ebb24a4e1b8353c20",
+      "size": 1732525
     },
     {
       "path": "mods/entityculling-neoforge-1.11.3-mc1.21.1.jar",
