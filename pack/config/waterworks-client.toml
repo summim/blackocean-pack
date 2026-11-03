@@ -37,7 +37,7 @@
 		#Mesh preparation time target per client tick, in milliseconds. Default 2. Lower to 1 for smoother ticks while chunks catch up more slowly; raise to 4 for faster loading. Does not reduce mesh quality. A single cell or GPU upload can exceed this target.
 		# Default: 2.0
 		# Range: 0.25 ~ 8.0
-		surfaceRebuildBudgetMillis = 5.0
+		surfaceRebuildBudgetMillis = 2.0
 
 	#Client presentation settings. Physics is configured on the server.
 	[rendering.soundAndCamera]

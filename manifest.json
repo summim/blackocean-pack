@@ -1,10 +1,10 @@
 {
-  "version": 16,
-  "updatedAt": "2026-11-03T22:39:03.103Z",
+  "version": 17,
+  "updatedAt": "2026-11-03T23:01:29.311Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
-  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 스킬 4종! 숫자키 1 화염 주먹 · 2 불꽃 탄환 · 3 불기둥 · 4 화염 고리\n  (핫바 오른쪽 칸에 쿨타임 표시, 1~4키는 이제 핫바 대신 스킬)\n- 스킬 키를 꾹 누르면 날아갈 방향·사거리·범위가 보여요! 떼면 발동, 우클릭으로 취소\n- 쿨타임 끝나기 직전이나 다른 스킬 쓰는 중에 누른 키도 씹히지 않고 바로 이어서 나가요\n- 이제 채팅에서 한글이 바로 쳐져요! (한/영 키로 전환)\n- 큰 돛이 계단처럼 깨져 보이던 문제 수정\n- 배를 새로 만들어도 옛날 돛 그림이 남아 보이던 문제 수정\n- 닻줄이 더 길어졌어요 (20칸)\n- 캐릭터 동작이 더 자연스러워졌어요 (Fresh Animations: Player + Touch'n Motion, 자동 적용)",
+  "notes": "블랙오션 테스트 서버에 오신 걸 환영해요!\n- 배 위에서 스킬 조준할 때 화면이 크게 끊기던 문제 수정\n- 돛·밧줄 그리기 가벼워짐 (프레임 개선)\n- 파도 계산이 한 번에 너무 오래 일하지 않게 조정 (끊김 감소)\n- 조타륜 우클릭으로 배 조립, W/S 로 돛 펴고 접기\n- 노걸이 우클릭으로 노 젓기\n- 스킬 4종! 숫자키 1 화염 주먹 · 2 불꽃 탄환 · 3 불기둥 · 4 화염 고리\n  (핫바 오른쪽 칸에 쿨타임 표시, 1~4키는 이제 핫바 대신 스킬)\n- 스킬 키를 꾹 누르면 날아갈 방향·사거리·범위가 보여요! 떼면 발동, 우클릭으로 취소\n- 쿨타임 끝나기 직전이나 다른 스킬 쓰는 중에 누른 키도 씹히지 않고 바로 이어서 나가요\n- 이제 채팅에서 한글이 바로 쳐져요! (한/영 키로 전환)\n- 큰 돛이 계단처럼 깨져 보이던 문제 수정\n- 배를 새로 만들어도 옛날 돛 그림이 남아 보이던 문제 수정\n- 닻줄이 더 길어졌어요 (20칸)\n- 캐릭터 동작이 더 자연스러워졌어요 (Fresh Animations: Player + Touch'n Motion, 자동 적용)",
   "managedDirs": [
     "mods"
   ],
@@ -45,20 +45,20 @@
     {
       "path": "config/waterworks-client.toml",
       "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/config/waterworks-client.toml",
-      "sha1": "c1df929b0ebc828702a3603e035ca7eec0bd3216",
+      "sha1": "951694ad222155bd56041750975409b12ead16d9",
       "size": 7157
     },
     {
-      "path": "mods/blackocean_sails-1.0.2.jar",
-      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_sails-1.0.2.jar",
-      "sha1": "e6ac0fd5f7a8c164d4fec94077cbabcd11f1515d",
-      "size": 174463
+      "path": "mods/blackocean_sails-1.0.3.jar",
+      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_sails-1.0.3.jar",
+      "sha1": "413c230a8340961aa925ef5cd30269616c65fe49",
+      "size": 175402
     },
     {
-      "path": "mods/blackocean_skills-1.3.0.jar",
-      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.3.0.jar",
-      "sha1": "b104e88702ae2bf71e37ec158309ad6c04502299",
-      "size": 1970496
+      "path": "mods/blackocean_skills-1.3.1.jar",
+      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/blackocean_skills-1.3.1.jar",
+      "sha1": "daea01e6f06d15ac72dca267864a51b68a38d747",
+      "size": 1972539
     },
     {
       "path": "mods/emf_compat_core_neoforge_1.21.1_2.3.2.jar",
