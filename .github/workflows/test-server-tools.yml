@@ -64,7 +64,7 @@ jobs:
           if ($out -match 'was unexpected|is not recognized as an internal') { throw "FAIL: cmd parse error" }
           if ($out -notmatch 'java @user_jvm_args.txt @libraries') { throw "FAIL: server start step not reached" }
           if ($out -notmatch 'openjdk version|java version') { throw "FAIL: java did not run" }
-          if (-not (Test-Path "$srv\mods\blackocean_skills-1.1.1.jar")) { throw "FAIL: mods not installed by bat" }
+          if (-not (Get-ChildItem "$srv\mods\blackocean_skills-*.jar" -ErrorAction SilentlyContinue)) { throw "FAIL: mods not installed by bat" }
           Write-Host "ok: bat ran update + start"
 
       - name: Run 서버시작.bat in a wrong folder (must show error, not crash)
