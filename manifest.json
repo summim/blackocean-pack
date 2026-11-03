@@ -1,6 +1,6 @@
 {
-  "version": 13,
-  "updatedAt": "2026-11-03T22:01:16.325Z",
+  "version": 14,
+  "updatedAt": "2026-11-03T22:10:11.102Z",
   "mc": "1.21.1",
   "neoforge": "21.1.265",
   "server": "localhost:25565",
@@ -114,6 +114,12 @@
       "sha1": "1757289be21ed18db5b0d90703fa3db1b2de5693",
       "size": 1292934,
       "side": "client"
+    },
+    {
+      "path": "mods/spark-1.10.124-neoforge.jar",
+      "url": "https://raw.githubusercontent.com/summim/blackocean-pack/main/pack/mods/spark-1.10.124-neoforge.jar",
+      "sha1": "9430cc2ab64ff89d698be593769fb9f9ee4efae6",
+      "size": 3642581
     },
     {
       "path": "mods/wakes-1.21.1-NeoForge-1.4.1.jar",
