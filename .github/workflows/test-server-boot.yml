@@ -1,0 +1,53 @@
+name: Test server boot
+
+# 서버에 들어가는 모드(시청자 전용 제외)만 모아서 진짜 NeoForge 서버를 켜 보고, 오류 없이 켜지는지 확인
+on:
+  push:
+    paths: [ 'manifest.json', '.github/workflows/test-server-boot.yml' ]
+  workflow_dispatch:
+
+jobs:
+  boot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install NeoForge server
+        run: |
+          NEO=$(python3 -c "import json;print(json.load(open('manifest.json'))['neoforge'])")
+          mkdir srv && cd srv
+          curl -sSL -o installer.jar "https://maven.neoforged.net/releases/net/neoforged/neoforge/$NEO/neoforge-$NEO-installer.jar"
+          java -jar installer.jar --install-server . > install.log 2>&1 || (tail -50 install.log; exit 1)
+          echo "eula=true" > eula.txt
+          printf "online-mode=false\nlevel-type=minecraft\\\\:flat\ngenerate-structures=false\nspawn-protection=0\n" > server.properties
+      - name: Copy server-side mods only
+        run: |
+          mkdir -p srv/mods srv/config
+          python3 - <<'PY'
+          import json, shutil, os
+          m = json.load(open('manifest.json'))
+          for f in m['files']:
+              if f.get('side') == 'client': continue
+              if f['path'].startswith(('mods/', 'config/')):
+                  dst = os.path.join('srv', f['path'])
+                  os.makedirs(os.path.dirname(dst), exist_ok=True)
+                  shutil.copy(os.path.join('pack', f['path']), dst)
+                  print('server:', f['path'])
+          PY
+      - name: Boot server
+        run: |
+          cd srv
+          ( bash run.sh nogui > server.log 2>&1 & )
+          for i in $(seq 1 180); do
+            if grep -q "Done (" server.log; then echo "SERVER STARTED"; break; fi
+            if grep -qE "Crash report|ModLoadingException|Failed to start|Missing or unsupported mandatory dependencies" logs/latest.log server.log 2>/dev/null; then break; fi
+            sleep 2
+          done
+          sleep 10
+          pkill -f neoforge || true
+          echo "----- errors -----"
+          grep -E "ERROR|Exception|Missing|unsupported" server.log | grep -v "No key layers" | head -60 || true
+          grep -q "Done (" server.log
