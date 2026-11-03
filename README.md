@@ -25,6 +25,8 @@
 - `server`: 접속기가 게임을 켜면 바로 이 서버로 들어감 (주소:포트)
 - `onceFiles`: 처음 한 번만 복사하고 그 뒤로는 건드리지 않는 파일 (옵션·서버목록처럼 시청자가 바꾸는 것)
 - `managedDirs`: 목록에 없는 파일을 지울 폴더
+- `resourcePacks`: 접속기가 자동으로 켜 둘 리소스팩 (`pack/resourcepacks/` 에 넣은 zip 을 `file/이름.zip` 으로). 접속기 1.0.4 이상
+- `removedResourcePacks`: 예전에 자동으로 켰다가 뺀 팩 이름 (시청자 목록에서 지움)
 - `clientOnly`: 시청자 PC 에만 필요한 파일 (앞부분이 같으면 해당). 서버 업데이트가 건너뜀
 
 ## 주의

@@ -38,6 +38,9 @@ const manifest = {
   mc: cfg.mc, neoforge: cfg.neoforge, server: cfg.server,
   notes: cfg.notes || '',
   managedDirs: cfg.managedDirs || ['mods'],
+  // 접속기(1.0.4+)가 게임 켜기 전에 options.txt 에서 자동으로 켜 두는 리소스팩
+  ...(cfg.resourcePacks ? { resourcePacks: cfg.resourcePacks } : {}),
+  ...(cfg.removedResourcePacks ? { removedResourcePacks: cfg.removedResourcePacks } : {}),
   files,
 };
 fs.writeFileSync(path.join(root, 'manifest.json'), JSON.stringify(manifest, null, 2));
