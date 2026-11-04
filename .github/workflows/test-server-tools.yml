@@ -39,7 +39,7 @@ jobs:
           Must (Test-Path "$srv\mods_old\koreanpatch-neoforge-1.9.5+mc1.21.jar") "client mod moved"
           Must (Test-Path "$srv\mods\myservermod-2.0.jar") "own server mod kept"
           Must ((Get-Content "$srv\config\blackocean_sails-common.toml") -eq 'tuned') "server config not overwritten"
-          Must (Test-Path "$srv\config\sable_ships-common.toml") "missing config added"
+          Must (Test-Path "$srv\config\whitecap-server.json") "missing config added"
 
           $before = (Get-ChildItem "$srv\mods_old").Count
           powershell -NoProfile -ExecutionPolicy Bypass -File "$srv\.blackocean-update.ps1" -Root $srv -ManifestUrl $m
