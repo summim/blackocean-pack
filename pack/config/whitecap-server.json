@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "swellHeight": 0.3,
+  "surfStrength": 1.0,
+  "quality": 4,
+  "rainSwell": 1.15,
+  "thunderSwell": 1.3,
+  "swellPeriod": 6.3,
+  "swellDirection": 25.0,
+  "swellSpread": 0.5,
+  "crossSwell": 0.4,
+  "windSea": 0.23500001,
+  "variety": 0.6,
+  "surfInterval": 10.0,
+  "surfSets": 0.6,
+  "surfIrregularity": 0.5,
+  "oceanOnly": true,
+  "exemptWaveBoats": true,
+  "serverBoats": true,
+  "surfPush": 0.3,
+  "sableShips": true,
+  "sableWaveStrength": 1.0
+}
